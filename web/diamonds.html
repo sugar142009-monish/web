@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Excellence | Expanded Collection</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(212, 175, 55, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 0;
+            font-family: 'Playfair Display', serif, system-ui;
+            background-color: var(--dark);
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            text-align: center;
+        }
+
+        h1 {
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        p.subtitle {
+            color: #888;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .diamond-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .diamond-card:hover {
+            transform: scale(1.03);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .diamond-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .diamond-card:hover .diamond-img {
+            transform: scale(1.1);
+        }
+
+        .name {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: var(--gold);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diamond Excellence</h1>
+        <p class="subtitle">Certified High-Definition Collection</p>
+        <div class="gallery" id="diamond-gallery">
+            </div>
+    </div>
+
+    <script>
+        const diamonds = [
+            {
+                name: "The Eternal Round",
+                price: "₹5,20,000",
+                img: "https://i.pinimg.com/736x/65/f3/ff/65f3ff946c21de9367cf5c643e4fcd07.jpg"
+            },
+            {
+                name: "Blue Hope Reserve",
+                price: "₹12,40,000",
+                img: "https://i.pinimg.com/1200x/a0/a0/38/a0a038c0ff0397ead056bd0167348c5d.jpg"
+            },
+            {
+                name: "Princess Radiance",
+                price: "₹4,10,000",
+                img: "https://i.pinimg.com/736x/2c/e2/b7/2ce2b7444dca553b476e7de34b4de529.jpg"
+            },
+            {
+                name: "Yellow Canary",
+                price: "₹8,90,000",
+                img: "https://i.pinimg.com/1200x/77/99/af/7799afe83fd957dc77f943ce943969e6.jpg"
+            },
+            {
+                name: "Vintage Emerald",
+                price: "₹7,50,000",
+                img: "https://i.pinimg.com/1200x/52/3a/f3/523af3dd8ea3ed519b0fca8af64ca0d3.jpg"
+            },
+            {
+                name: "Oval Aura",
+                price: "₹6,15,000",
+                img: "https://i.pinimg.com/1200x/6b/4b/c6/6b4bc652425cdeeff47b911977acf121.jpg"
+            }
+        ];
+
+        const gallery = document.getElementById('diamond-gallery');
+
+        function render() {
+            gallery.innerHTML = diamonds.map(d => `
+                <div class="diamond-card">
+                    <div class="img-container">
+                        <img src="${d.img}" alt="${d.name}" class="diamond-img">
+                    </div>
+                    <div class="name">${d.name}</div>
+                    <div class="price">${d.price}</div>
+                    <button class="btn-buy">Request Quote</button>
+                </div>
+            `).join('');
+        }
+
+        render();
+    </script>
+</body>
+</html>

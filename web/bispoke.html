@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELIA | Royal Fine Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-bg: #0a0a0a;
+            --text-light: #f4f4f4;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1573408302355-4e0b7cada3ad?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        /* Collection Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.4s ease, border 0.4s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border: 1px solid var(--gold);
+        }
+
+        .image-box {
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .details {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .details h3 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            margin-top: 1rem;
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Necklace Palace</div>
+    </nav>
+
+    <header class="hero">
+        <h1>Eternal Radiance</h1>
+        <p>Gold & Diamond Masterpieces</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">The Royal Collection</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="image-box">
+                    <img src="c:\Users\hp\Downloads\L.jpg.png" alt="Diamond Necklace">
+                </div>
+                <div class="details">
+                    <h3>Royal Diamond Necklace</h3>
+                    <p class="price">18K Gold & VVS Diamonds</p>
+                    <button class="btn">View Masterpiece</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-box">
+                    <img src="c:\Users\hp\Downloads\StockCake-Elegant_Diamond_Necklace-921525-standard.jpg" alt="White Gold Necklace">
+                </div>
+                <div class="details">
+                    <h3>White Gold Necklace</h3>
+                    <p class="price">Handcrafted 22K Solid Gold</p>
+                    <button class="btn">View Masterpiece</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-box">
+                    <img src="c:\Users\hp\Downloads\Pre - Sapphire Diamond Necklace _ Statement Jewelry_ Statement Necklace_ Elegant Jewelry_ Unique Jewelry_ Indian Jewelry_ CZ choker Necklace.jpg" alt="Sapphire Diamond Necklace">
+                </div>
+                <div class="details">
+                    <h3>Sapphire Diamond Necklace</h3>
+                    <p class="price">Platinum Set Solitaire</p>
+                    <button class="btn">View Masterpiece</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=800&auto=format&fit=crop" alt="Golden Brooch">
+                </div>
+                <div class="details">
+                    <h3>Imperial Gold Brooch</h3>
+                    <p class="price">Vintage Filigree & Rubies</p>
+                    <button class="btn">View Masterpiece</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

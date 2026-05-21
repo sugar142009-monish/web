@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DIAMOND ROYALTY | Bespoke Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --soft-gold: #f4e1a1;
+            --obsidian: #050505;
+            --card-bg: #111;
+            --cream: #fffdf5;
+        }
+
+        /* --- Global Reset & Elegant Layout --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        /* --- Custom Scrollbar for 'Bespoke' Feel --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--obsidian); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* --- Royal Header --- */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #2a2a2a 0%, #050505 100%);
+            text-align: center;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .logo {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* --- Interactive Filtering System --- */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 40px 10%;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #aaa;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            padding: 8px 18px;
+            cursor: pointer;
+            transition: 0.4s;
+            border-radius: 20px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: var(--gold);
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* --- Dynamic Gallery Grid --- */
+        .gallery-container {
+            max-width: 1500px;
+            margin: 50px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        /* --- The 'Attract' Animation Card --- */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            padding: 20px;
+            position: relative;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Shimmer effect on hover */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: rotate(45deg);
+            transition: 0.8s ease;
+        }
+
+        .card:hover::before {
+            top: 100%;
+            left: 100%;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #222;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: 0.8s ease;
+        }
+
+        .card:hover img {
+            opacity: 1;
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        .card-meta {
+            text-align: left;
+        }
+
+        .category-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+        }
+
+        .title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 1.4rem;
+            color: var(--cream);
+            margin: 8px 0 12px;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-action:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Diamond Royalty</div>
+        <div class="tagline">Curated Brilliance • Since 1926</div>
+    </header>
+
+    <div class="filter-section" id="filter-nav">
+        </div>
+
+    <div class="gallery-container" id="main-gallery">
+        </div>
+
+    <footer>
+        <p>&copy; 2024 Diamond Royalty Atelier. All Rights Reserved.</p>
+        <p>Bespoke consultations by appointment only.</p>
+    </footer>
+
+    <script>
+        // --- The Luxury Dataset ---
+        // Categories: necklace, ring, bracelet, watch, accessories
+        // Gender: men, women, unisex
+        const diamonds = [
+            { id: 1, category: "necklace", gender: "women", name: "The Aurora Choker", price: "₹28,50,000", img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800" },
+            { id: 2, category: "ring", gender: "women", name: "Majesty's Diamond", price: "₹4,20,000", img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800" },
+            { id: 3, category: "bracelet", gender: "men", name: "Onyx Knight Cuff", price: "₹9,15,000", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800" },
+            { id: 4, category: "watch", gender: "men", name: "The Regal Chronos", price: "₹55,00,000", img: "https://i.pinimg.com/736x/4b/2b/bf/4b2bbf25b8743165dd329d0ece102753.jpg" },
+            { id: 5, category: "necklace", gender: "women", name: "Sapphire Heart Pendant", price: "₹18,75,000", img: "https://i.pinimg.com/736x/92/48/bc/9248bcb8e9b4cec255ea2f5dbf891209.jpg" },
+            { id: 6, category: "ring", gender: "men", name: "The Sovereign Signet", price: "₹2,10,000", img: "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?q=80&w=800" },
+            { id: 7, category: "accessories", gender: "unisex", name: "The Diamond Brooch", price: "₹6,80,000", img: "https://i.pinimg.com/736x/23/29/15/2329154f387543176f5d09a3e0ea4d83.jpg" },
+            { id: 8, category: "bracelet", gender: "women", name: "Gold Neckless", price: "₹14,50,000", img: "https://i.pinimg.com/736x/72/3d/e1/723de1d475ab5cd95dc15ed5f203f972.jpg" }
+        ];
+
+        // --- Core Functions ---
+        const gallery = document.getElementById('main-gallery');
+        const nav = document.getElementById('filter-nav');
+
+        // 1. Render the entire collection or filtered results
+        function renderCollection(items) {
+            gallery.innerHTML = items.map(d => `
+                <div class="card">
+                    <div class="image-box">
+                        <img src="${d.img}" alt="${d.name}">
+                    </div>
+                    <div class="card-meta">
+                        <span class="category-tag">${d.gender}'s ${d.category}</span>
+                        <div class="title">${d.name}</div>
+                        <span class="price">${d.price}</span>
+                        <button class="btn-action">Request Quote</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 2. Setup dynamic filters based on data
+        function setupFilters() {
+            const categories = [...new Set(diamonds.map(d => d.category))]; // get unique categories
+            const filterTypes = ['all', 'men', 'women', ...categories];
+
+            nav.innerHTML = filterTypes.map(type => `
+                <button class="filter-btn ${type === 'all' ? 'active' : ''}" onclick="applyFilter('${type}')">
+                    ${type}
+                </button>
+            `).join('');
+        }
+
+        // 3. Apply the selected filter
+        function applyFilter(filterType) {
+            // Update button states
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Apply logic
+            if (filterType === 'all') {
+                renderCollection(diamonds);
+            } else if (filterType === 'men' || filterType === 'women') {
+                renderCollection(diamonds.filter(d => d.gender === filterType || d.gender === 'unisex'));
+            } else {
+                renderCollection(diamonds.filter(d => d.category === filterType));
+            }
+        }
+
+        // --- Initial Load ---
+        renderCollection(diamonds);
+        setupFilters();
+    </script>
+</body>
+</html> 

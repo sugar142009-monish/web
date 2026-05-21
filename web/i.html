@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Enquiry | Private Concierge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-emerald: #04291d;
+            --gold: #c5a059;
+            --cream: #f4f1ea;
+            --text-dark: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--royal-emerald);
+            font-family: 'Playfair Display', serif;
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        .enquiry-frame {
+            max-width: 1200px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            background: #fff;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            min-height: 700px;
+        }
+
+        /* Left Side: Contact Info */
+        .contact-info {
+            background-color: var(--royal-emerald);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid var(--gold);
+        }
+
+        .contact-info h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item h4 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Right Side: Form */
+        .form-container {
+            padding: 60px;
+            background: var(--cream);
+            color: var(--text-dark);
+        }
+
+        .form-container h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom: 1px solid var(--gold);
+        }
+
+        label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--royal-emerald);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold);
+            color: var(--royal-emerald);
+        }
+
+        .map-section {
+            grid-column: span 2;
+            padding: 40px;
+            background: var(--cream);
+            border-top: 1px solid var(--gold);
+            text-align: center;
+        }
+
+        #get-directions {
+            padding: 15px 30px;
+            background: var(--royal-emerald);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        #get-directions:hover {
+            background: var(--gold);
+            color: var(--royal-emerald);
+        }
+
+        @media (max-width: 900px) {
+            .enquiry-frame { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="enquiry-frame">
+        <div class="contact-info">
+            <h2>BIJOY AND SONA Jewellery</h2>
+            <div class="info-item">
+                <h4>Telephone</h4>
+                <p>+91 98282 38550</p>
+            </div>
+            <div class="info-item">
+                <h4>The Atelier Address</h4>
+                <p>41 Shekhawat Sadan, Ghati Karolan,<br>JAIPUR GONER ROAD (BPL), RAJASTHAN, India</p>
+            </div>
+            <div class="info-item">
+                <h4>Hours of Operation</h4>
+                <p>By Appointment Only<br>Mon - Sat: 11:00 AM - 7:00 PM</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h3>Request an Invitation</h3>
+            <form id="royalForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your Excellency's Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Electronic Mail</label>
+                    <input type="email" placeholder="email@luxury.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Interested In</label>
+                    <input type="text" placeholder="Bespoke Ring, Rare Diamond, etc.">
+                </div>
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea rows="3" placeholder="Describe your vision..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Enquiry</button>
+            </form>
+        </div>
+
+        <div class="map-section">
+            <button id="get-directions">
+                📍 GET DIRECTIONS TO THE ATELIER
+            </button>
+            <p style="color: #666; font-size: 0.8rem; margin-top: 10px; font-family: 'Cinzel';">
+                (Click to navigate from your current location)
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // FORM SUBMISSION
+        document.getElementById('royalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Your enquiry has been received. Our concierge will contact you shortly.");
+        });
+
+        // AUTOMATIC LOCATION CONNECTION
+        document.getElementById('get-directions').onclick = function() {
+            // Your store coordinates and name
+            const destLat = 26.877078;
+            const destLon = 75.875615;
+            const destName = "41+Shekhawat+Sadan+Jaipur"; 
+            
+            if (navigator.geolocation) {
+                // Ask user for their current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLat = position.coords.latitude;
+                    const userLon = position.coords.longitude;
+                    
+                    // Create URL: Start at User Lat/Lon, End at Your Lat/Lon
+                    const url = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLon}&destination=${destLat},${destLon}&travelmode=driving`;
+                    window.open(url, '_blank');
+                }, function() {
+                    // Fallback if user denies location: Just show your location
+                    const url = `https://www.google.com/maps/search/?api=1&query=${destLat},${destLon}`;
+                    window.open(url, '_blank');
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                const url = `https://www.google.com/maps/search/?api=1&query=${destLat},${destLon}`;
+                window.open(url, '_blank');
+            }
+        };
+    </script>
+
+</body>
+</html>
